@@ -1,0 +1,19 @@
+
+<div>
+
+  <h2 class="mb-3 text-center">Levity's Lodge</h2>
+
+  <div *ngIf="jokes[index].type == 'twopart'">
+    <div class="mb-3 text-center"><h3>{{jokes[index].setup}}</h3></div>
+    <div class="mb-3 text-center"><h3>{{jokes[index].delivery}}</h3></div>
+  </div>
+
+  <div *ngIf="jokes[index].type=='single'">
+    <div class="mb-3 text-center">
+      <h3>{{jokes[index].joke}}</h3>
+      </div>
+    </div>
+  <div class="mb-3 text-center">
+  <button class="text-center" (click)="nextJoke()">Next Joke</button>
+    </div>
+</div>

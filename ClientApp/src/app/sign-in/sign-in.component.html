@@ -1,0 +1,24 @@
+
+
+
+<div class="signInError mb-3">
+  {{ErrorMessage}}
+</div>
+<form #SignInForm="ngForm" (ngSubmit)="SignIn(SignInForm)">
+  <div class="mb-3">
+    <label for="Email">Email</label>
+    <input class="form-control" #Email="ngModel" ngModel email name="Email" />
+    <span *ngIf="Email.touched && !Email.valid">Please enter a valid email.</span>
+  </div>
+
+  <div class="mb-3">
+    <label for="Password">Password</label>
+    <input class="form-control" type="password" #Password="ngModel" ngModel name="Password" />
+    <span *ngIf="Password.touched && !Password.valid">Please enter a Password between 5-10 characters</span>
+  </div>
+  <div class="mb-3">
+    <button class="btn-primary" [disabled]="!SignInForm.valid" type="submit">Submit</button>
+  </div>
+
+
+</form>

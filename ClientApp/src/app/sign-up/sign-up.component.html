@@ -1,0 +1,39 @@
+
+
+
+<div class="mb-3" *ngIf="ErrorMessages.length> 0">
+  <div class="mb-3 signUpError" *ngFor="let error of ErrorMessages">
+    {{error}}
+  </div>
+</div>
+
+<form #SignUpForm="ngForm" (ngSubmit)="submit(SignUpForm)">
+
+  <div class="mb-3">
+    <label for="UserName">User Name</label>
+    <input class="form-control" #UserName="ngModel" pattern="[a-zA-Z0-9]{5,10}" ngModel name="UserName" />
+    <span *ngIf="UserName.touched && !UserName.valid">Please enter a valid username. Letters and numbers only between 5-10 characters.</span>
+  </div>
+  <div class="mb-3">
+    <label for="Email">Email</label>
+    <input class="form-control" #Email="ngModel" ngModel email name="Email" />
+    <span *ngIf="Email.touched && !Email.valid">Please enter a valid email.</span>
+  </div>
+  <div class="mb-3">
+    <label for="PhoneNumber">Phone Number</label>
+    <input class="form-control" #PhoneNumber="ngModel" pattern="\d{10}" ngModel name="PhoneNumber" />
+    <span *ngIf="PhoneNumber.touched && !PhoneNumber.valid">Please enter a valid phone number.</span>
+  </div>
+  <div class="mb-3">
+    <label for="Password">Password</label>
+    <input class="form-control" type="password" #Password="ngModel" ngModel name="Password" />
+    <span *ngIf="Password.touched && !Password.valid">Please enter a Password between 5-10 characters</span>
+  </div>
+
+  <div class="mb-3">
+    <button class="btn-primary" [disabled]="!SignUpForm.valid" type="submit">Submit</button>
+  </div>
+
+</form>
+
+

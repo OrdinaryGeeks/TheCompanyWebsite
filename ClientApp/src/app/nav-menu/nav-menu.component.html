@@ -1,0 +1,59 @@
+<header>
+  <nav
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-black border-bottom box-shadow mb-3"
+  >
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/']">Ordinary Geeks</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target=".navbar-collapse"
+        aria-label="Toggle navigation"
+        [attr.aria-expanded]="isExpanded"
+        (click)="toggle()"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
+        [ngClass]="{ show: isExpanded }"
+      >
+        <ul class="navbar-nav flex-grow">
+          <li class="nav-item"
+              [routerLinkActive]="['link-active']"
+              [routerLinkActiveOptions]="{ exact: true }">
+            <a class="nav-link text-light" [routerLink]="['/']">Home</a>
+          </li>
+
+          <li *ngIf="!isAuthenticated" class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-light" [routerLink]="['/SignIn']">Sign In</a>
+          </li>
+          <li *ngIf="!isAuthenticated" class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-light" [routerLink]="['/SignUp']">Sign Up</a>
+          </li>
+          <li *ngIf="isAuthenticated" class="nav-item">
+            <button class="btn-danger btn" (click)="SignOut()">Sign Out</button>
+          </li>
+          <li *ngIf="isAuthenticated" class="nav-item">
+            <a class="nav-link text-light" [routerLink]="['/Roles']">Roles</a>
+          </li>
+          <li *ngIf="isAuthenticated" class="nav-item dropdown" data-bs-theme="dark">
+            <div class="nav-link text-light dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Transformative
+            </div>
+            <ul class="dropdown-menu">
+              <li><a class="nav-link dropdown-item text-dark" [routerLink]="['/Transformative']">Transformative</a></li>
+              <li><a class="dropdown-item nav-link text-dark" [routerLink]="['/Levity']">Levity</a></li>
+              <li><a class="dropdown-item nav-link text-dark" [routerLink]="['/Counseling']">Counseling</a></li>
+            </ul>
+          </li>
+          <li *ngIf="isAuthenticated" class="nav-item">
+            <span class="nav-link text-light">Welcome {{userName}}</span>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+</header>

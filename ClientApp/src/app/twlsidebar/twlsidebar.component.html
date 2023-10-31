@@ -1,0 +1,16 @@
+
+
+<div *ngIf="showSideBar" [ngClass]="sideBarClasses()" (click)="toggleSideBarOnClick()">
+  Wisdom's Buffet
+
+
+  <div>Purity Of Sweat</div>
+  <div>Cranial Massage</div>
+  <div>The Steeple</div>
+  <div>Levity's Lodge'</div>
+  <div>Counselors Ward</div>
+</div>
+
+<div *ngIf="!showSideBar" [ngClass]="sideBarClasses()" (click)="toggleSideBarOnClick()">
+  W
+</div>

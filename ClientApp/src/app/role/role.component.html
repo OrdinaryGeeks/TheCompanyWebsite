@@ -1,0 +1,54 @@
+
+
+
+
+
+
+
+<form #PermissionsForm="ngForm" (ngSubmit)="onSubmit(PermissionsForm)">
+  <div class="mb-3">
+    <label for="TWLUser">Transformative User</label>
+    <input class="form-check" name="TWLUser" type="checkbox" ngModel #TWLUser="ngModel" />
+  </div>
+
+  <div class="mb-3">
+    <label for="CTUser">Contagion Tracker User</label>
+    <input class="form-check" name="CTUser" type="checkbox" ngModel #CTUser="ngModel" />
+  </div>
+
+  <div class="mb-3">
+    <label for="TAUser">Trucking App User</label>
+    <input class="form-check" type="checkbox" ngModel name="TAUser" #TAUser="ngModel" />
+  </div>
+
+  <div class="mb-3">
+    <label for="MCUser">Mentor Companion User</label>
+    <input class="form-check" type="checkbox" ngModel name="MCUser" #MCUser="ngModel" />
+  </div>
+
+  <div class="mb-3">
+    <label for="TWLAdmin">Transformative Admin</label>
+    <input class="form-check" name="TWLAdmin" type="checkbox" ngModel #TWLAdmin="ngModel" />
+  </div>
+
+  <div class="mb-3">
+    <label for="CTAdmin">Contagion Tracker User</label>
+    <input class="form-check" name="CTAdmin" type="checkbox" ngModel #CTAdmin="ngModel" />
+  </div>
+
+  <div class="mb-3">
+    <label for="TAAdmin">Trucking App Admin</label>
+    <input class="form-check" type="checkbox" ngModel name="TAAdmin" #TAAdmin="ngModel" />
+  </div>
+
+  <div class="mb-3">
+    <label for="MCAdmin">Mentor Companion Admin</label>
+    <input class="form-check" type="checkbox" ngModel name="MCAdmin" #MCUser="ngModel" />
+  </div>
+
+  <div class="mb-3">
+    <button class="btn-primary"  type="submit">Submit</button>
+  </div>
+
+
+</form>
