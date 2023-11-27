@@ -35,17 +35,19 @@
           <li *ngIf="isAuthenticated" class="nav-item">
             <button class="btn-danger btn" (click)="SignOut()">Sign Out</button>
           </li>
-          <li *ngIf="isAuthenticated" class="nav-item">
+          <!--<li *ngIf="isAuthenticated" class="nav-item">
             <a class="nav-link text-light" [routerLink]="['/Roles']">Roles</a>
-          </li>
+          </li>-->
           <li *ngIf="isAuthenticated" class="nav-item dropdown" data-bs-theme="dark">
             <div class="nav-link text-light dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Transformative
             </div>
             <ul class="dropdown-menu">
-              <li><a class="nav-link dropdown-item text-dark" [routerLink]="['/Transformative']">Transformative</a></li>
+             <!-- <li><a class="nav-link dropdown-item text-dark" [routerLink]="['/Transformative']">Transformative</a></li>-->
               <li><a class="dropdown-item nav-link text-dark" [routerLink]="['/Levity']">Levity</a></li>
               <li><a class="dropdown-item nav-link text-dark" [routerLink]="['/Counseling']">Counseling</a></li>
+              <li><a class="dropdown-item nav-link text-dark" [routerLink]="['/CrosswordAdmin']">Crossword Admin</a></li>
+              <li><a class="dropdown-item nav-link text-dark" [routerLink]="['/Crossword']">Crossword</a></li>
             </ul>
           </li>
           <li *ngIf="isAuthenticated" class="nav-item">

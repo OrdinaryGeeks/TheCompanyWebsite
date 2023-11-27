@@ -28,22 +28,22 @@ export class AuthService {
 
 
     //return this.http.post("https://localhost:7007/api/users ", user);
-    return this.http.post("https://www.ordinarygeeks.com/api/users/", userDTO);
+    return this.http.post("https://www.alectosinterdimensionalblog.com/api/users/", userDTO);
   }
 
   getUsers(){
 
-    return this.http.get("https://www.ordinarygeeks.com/api/users");
+    return this.http.get("https://www.alectosinterdimensionalblog.com/api/users");
   }
 
   signIn(signInRequest: SignInRequest):Observable<User> {
    
-    return this.http.post<User>("https://www.ordinarygeeks.com/api/auth/signin", signInRequest);
+    return this.http.post<User>("https://www.alectosinterdimensionalblog.com/api/auth/signin", signInRequest);
   }
 
   getRoles(userId: number): Observable<Role[]> {
 
-    return this.http.post<Role[]>("https://www.ordinarygeeks.com/api/auth/getUserRoles", userId);
+    return this.http.post<Role[]>("https://www.alectosinterdimensionalblog.com/api/auth/getUserRoles", userId);
   }
 
   signOut() {

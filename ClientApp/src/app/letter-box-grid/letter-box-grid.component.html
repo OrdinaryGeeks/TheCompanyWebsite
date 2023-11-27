@@ -1,0 +1,67 @@
+
+
+
+
+
+<div *ngFor="let letterBoxArray of LetterBoxes; index as i">
+
+  <span *ngFor="let letterBox of letterBoxArray; index as j">
+    <span *ngIf="letterBox.active && !(i == x && j == y)">
+      <input size=1 type="text" (click)="setClueIndices(i, j)" [value]="letterBox.letter" [ngStyle]="letterBox.style" />
+    </span>
+    <span *ngIf="letterBox.active && (i == x && j == y)">
+      <input size=1 type="text" (click)="setClueIndices(i, j)" [value]="letterBox.letter" [ngStyle]="{'background-color':'yellow'}" />
+    </span>
+    <span *ngIf="!letterBox.active && !(i == x && j == y)">
+      <input size=1 type="text" (click)="setClueIndices(i, j)" [value]="letterBox.letter" [ngStyle]="{'background-color':'black'}" />
+    </span>
+    <span *ngIf="!letterBox.active && i == x && j == y">
+      <input size=1 type="text" (click)="setClueIndices(i, j)" [value]="letterBox.letter" [ngStyle]="{'background-color':'yellow'}" />
+    </span>
+  </span>
+</div>
+
+
+<form #clueForm="ngForm" class="form-group" (ngSubmit)="AddClue(clueForm)">
+
+  <input type="text" class="form-control" #clue ngModel name="clue" />
+  <input type="text" class="form-control" #answer ngModel name="answer" />
+
+  <input class="form-check-input" type="radio" ngModel value="horizontal" name="clueOrientation" id="horizontalClueCheck" checked />
+  <label class="form-check-label" for="horizontalClueCheck">
+    Horizontal Clue
+  </label>
+
+  <input class="form-check-input" type="radio" ngModel value="vertical" name="clueOrientation" id="verticalClueCheck" />
+  <label class="form-check-label" for="verticalClueCheck">
+    Vertical Clue
+  </label>
+
+  <button type="submit">Add Clue</button>
+</form>
+
+
+
+
+Across
+<div *ngFor="let clue of Clues">
+ 
+  <span *ngIf="clue.direction == 'horizontal'">
+    {{clue.index}}. {{clue.clue}}
+  </span>
+</div>
+Down
+<div *ngFor="let clue of Clues">
+  
+  <span *ngIf="clue.direction == 'vertical'">
+   {{clue.index}}. {{clue.clue}}
+  </span>
+</div>
+
+<button (click)="UpdateClues()">Update Clues</button>
+
+<form #crossWordNameForm="ngForm" (ngSubmit) ="PostCrossWord(crossWordNameForm)">
+  <label for="crosswordName">Name of Cross Word Puzzle</label>
+<input type="text"  name="crosswordName" #crosswordName="ngModel" ngModel />
+<button type="submit">Post Cross Word</button>
+  </form>

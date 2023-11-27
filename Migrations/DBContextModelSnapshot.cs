@@ -95,6 +95,62 @@ namespace TheCompanyWebsite.Migrations
                     b.ToTable("Role");
                 });
 
+            modelBuilder.Entity("TheCompanyWebsite.Models.TWLClue", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Answer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Clue")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Direction")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Index")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TWLCrosswordId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("X")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Y")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TWLCrosswordId");
+
+                    b.ToTable("TWLClue");
+                });
+
+            modelBuilder.Entity("TheCompanyWebsite.Models.TWLCrossword", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TWLCrossword");
+                });
+
             modelBuilder.Entity("TheCompanyWebsite.Models.TWLUser", b =>
                 {
                     b.Property<int>("Id")
@@ -217,6 +273,15 @@ namespace TheCompanyWebsite.Migrations
                     b.ToTable("UserRole");
                 });
 
+            modelBuilder.Entity("TheCompanyWebsite.Models.TWLClue", b =>
+                {
+                    b.HasOne("TheCompanyWebsite.Models.TWLCrossword", null)
+                        .WithMany("Clues")
+                        .HasForeignKey("TWLCrosswordId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("TheCompanyWebsite.Models.TWLUser", b =>
                 {
                     b.HasOne("TheCompanyWebsite.Models.Training", null)
@@ -238,6 +303,11 @@ namespace TheCompanyWebsite.Migrations
                     b.HasOne("TheCompanyWebsite.Models.Training", null)
                         .WithMany("TrainingVideos")
                         .HasForeignKey("TrainingId");
+                });
+
+            modelBuilder.Entity("TheCompanyWebsite.Models.TWLCrossword", b =>
+                {
+                    b.Navigation("Clues");
                 });
 
             modelBuilder.Entity("TheCompanyWebsite.Models.Trainer", b =>

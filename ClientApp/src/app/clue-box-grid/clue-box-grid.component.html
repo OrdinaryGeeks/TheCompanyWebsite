@@ -1,0 +1,39 @@
+
+
+
+<select #selectedCrossword [(ngModel)]="crosswordSelected.id" (change)="crosswordSelection()">
+  <option *ngFor="let crossword of Crosswords" [ngValue]="crossword.id">{{crossword.name}}</option>
+</select>
+
+{{crosswordSelected.id}}
+
+<div *ngFor="let letterBoxArray of LetterBoxes; index as i">
+
+  <span *ngFor="let letterBox of letterBoxArray; index as j">
+    <span *ngIf="letterBox.active ">
+      <input size=1 type="text" (keyup)="letterEntered($event, i, j)" [value]="letterBox.letter" [ngStyle]="letterBox.style" />
+    </span>
+
+    <span *ngIf="!letterBox.active">
+      <input size=1 type="text" [value]="letterBox.letter" [ngStyle]="{'background-color':'black'}" />
+    </span>
+
+  </span>
+</div>
+
+<button (click)="CheckAnswers()">Check Answers</button>
+
+Across
+<div *ngFor="let clue of Clues">
+
+  <span *ngIf="clue.direction == 'horizontal'">
+    {{clue.index}}. {{clue.clue}}
+  </span>
+</div>
+Down
+<div *ngFor="let clue of Clues">
+
+  <span *ngIf="clue.direction == 'vertical'">
+    {{clue.index}}. {{clue.clue}}
+  </span>
+</div>

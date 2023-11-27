@@ -23,5 +23,9 @@ namespace OrdinaryGeeksLegends.Models
         public DbSet<TheCompanyWebsite.Models.TrainingVideo> TrainingVideo { get; set; } = default!;
 
         public DbSet<TheCompanyWebsite.Models.TWLUser> TWLUser { get; set; } = default!;
+
+        public DbSet<TheCompanyWebsite.Models.TWLCrossword> TWLCrossword { get; set; } = default!;
+
+        public DbSet<TheCompanyWebsite.Models.TWLClue> TWLClue { get; set; } = default!;
     }
 }

@@ -13,6 +13,11 @@ import { RoleComponent } from './role/role.component';
 import { TWLHomeComponent } from './twlhome/twlhome.component';
 import { LevityComponent } from './levity/levity.component';
 import { CounselingComponent } from './counseling/counseling.component';
+import { LetterBoxComponent } from './letter-box/letter-box.component';
+import { LetterBoxGridComponent } from './letter-box-grid/letter-box-grid.component';
+import { CrosswordComponent } from './crossword/crossword.component';
+import { CrosswordBuildComponent } from './crossword-build/crossword-build.component';
+import { ClueBoxGridComponent } from './clue-box-grid/clue-box-grid.component';
 
 
 @NgModule({
@@ -26,6 +31,11 @@ import { CounselingComponent } from './counseling/counseling.component';
     TWLHomeComponent,
     LevityComponent,
     CounselingComponent,
+    LetterBoxComponent,
+    LetterBoxGridComponent,
+    CrosswordComponent,
+    CrosswordBuildComponent,
+    ClueBoxGridComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -39,6 +49,8 @@ import { CounselingComponent } from './counseling/counseling.component';
       { path: 'Transformative', component: TWLHomeComponent, pathMatch: 'full' },
       { path: 'Levity', component: LevityComponent, pathMatch: 'full' },
       { path: 'Counseling', component: CounselingComponent, pathMatch: 'full' },
+      { path: 'Crossword', component: CrosswordComponent, pathMatch: 'full' },
+      { path: 'CrosswordAdmin', component: CrosswordBuildComponent, pathMatch: 'full' }
     ])
   ],
   providers: [],

@@ -20,6 +20,6 @@ export class CounselingComponent implements OnInit {
   }
 
   moreAdvice() {
-    this.twlService.getAdvice().subscribe(result => { this.adviceResponse = result; alert(result.slip.advice); });
+    this.twlService.getAdvice().subscribe(result => { this.adviceResponse = result; });
   }
 }
